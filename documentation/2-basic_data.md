@@ -36,7 +36,7 @@ Time strings should be in military time so eg `16:30`. If `include_tomorrow` is 
 Determines if the data of today should be used. Only used when no `start` parameter is provided, or if a time string is used for the `start` parameter.
 ***
 ### **include_tomorrow** <span style="color:grey">_boolean (default: false)_</span>
-Determines if the data of tomorrow should be used. Only used when no `end` parameter is provided, or if a time string is used for the `end` parameter.
+Determines if the data of tomorrow should be used. Only used when no `end` parameter is provided, or if a time string is used for the `end` parameter. Note that if you want to use a period that spans the night, and where the start time is above the end time (e.g. 20:00 - 6:00) it's easiest to just provide the start and end time, and do not set `include_tomorrow=true`. If you do provide `include_tomorrow=true` it will move to 20:00 - 6:00 the next day after midnight.
 ***
 ### **look_ahead** <span style="color:grey">_boolean (default: false)_</span>
 To only include prices as of now, set this to `true`. If combined with `start`, the latest time of the two is used (so if the `start` parameter is set to a future time, that time will be leading, if it is set to a time in the past, the current time will be leading). If not combined with the parameter `start`, you can achieve the same by using `start=now()`
